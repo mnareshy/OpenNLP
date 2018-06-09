@@ -12,7 +12,7 @@ public class SenteceDetect {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		
-		InputStream inputStream = new FileInputStream("/home/sairam/work/java/langdetect-183 .bin"); 
+		InputStream inputStream = new FileInputStream("/home/sairam/work/java/apache-opennlp-1.8.4/Models/en-sent.bin"); 
 		SentenceModel model = new SentenceModel(inputStream);
 		SentenceDetectorME detector = new SentenceDetectorME(model);
 		
