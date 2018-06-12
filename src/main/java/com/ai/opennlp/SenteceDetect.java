@@ -6,6 +6,7 @@ import java.io.InputStream;
 
 import opennlp.tools.sentdetect.SentenceDetectorME;
 import opennlp.tools.sentdetect.SentenceModel;
+import opennlp.tools.util.Span;
 
 public class SenteceDetect {
 
@@ -17,7 +18,7 @@ public class SenteceDetect {
 		SentenceDetectorME detector = new SentenceDetectorME(model);
 		
 		String sentence = "Hi. How are you? what are you doing. " 
-		         + "lets explore Open NLP"; 
+		         + "lets explore Open NLP." + "\nThe God is the creater!"+ "\nxxx xxuxuxuxjhjljkj;"; 
 		       
 		
 		String sentences[] = detector.sentDetect(sentence);
@@ -25,6 +26,26 @@ public class SenteceDetect {
 		 for(String sent : sentences)        
 	         System.out.println(sent); 
 
+		 
+		 Span span[] = detector.sentPosDetect(sentence);
+		 
+		 for (int i = 0; i < span.length; i++) {
+			 
+			 System.out.println(span[i].toString());
+			 System.out.println(sentence.substring(span[i].getStart(),span[i].getEnd())); 
+			
+		}
+		 
+		double probablities[] =  detector.getSentenceProbabilities();
+		
+		for (int i = 0; i < probablities.length; i++) {
+			
+			System.out.println(probablities[i]);
+			
+		}
+		
+		
+		 
 	}
 
 }
